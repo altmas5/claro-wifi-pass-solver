@@ -1,7 +1,7 @@
 claro-wifi-pass-solver
 ======================
 
-Muestra contraseña de las redes inalámbricas con nombre CLARO_XXXXXX
+Muestra contraseña de las redes inalámbricas con nombre CLARO_XXXXXX. Testeado únicamente en Nicaragua
 
 Para entender funcionamiento referirse a los comentarios en el código del script
 
