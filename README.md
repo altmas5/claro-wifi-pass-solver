@@ -1,11 +1,13 @@
 claro-wifi-pass-solver
 ======================
 
-Muestra contraseña de las redes inalámbricas cercanas con nombre CLARO_XXXXXX
+El ISP claro instala enrutadores con contraseñas basadas en el (E)SSID y BSSID.
 
-El script ha sido probado únicamente en Nicaragua pensado para ejecurse en Sistemas Operativos basados en GNU/Linux.
+Este script automatiza el proceso de obtener la contraseña suponiendo que estos dispositivos todavía tienen la configuración por defecto.
 
-Para entender funcionamiento referirse a los comentarios en el código del script
+Se funcionamiento ha sido probado únicamente en Nicaragua pensado para ejecurse en Sistemas Operativos basados en GNU/Linux.
+
+Para entender como lo hace referirse a los comentarios en el código del script
 
 descargar
 ---------
