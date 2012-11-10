@@ -7,8 +7,8 @@ pat="^CLARO_[[:xdigit:]]{6}$"
 
 #obtenemos interfaz inalambrica y escaneamos
 iwconfig &> /tmp/wnics;
-int=$(cat /tmp/wnics |grep -v 'no wireless extensions\|^[[:space:]]'| awk '{print $1}'|sort -r);
-iwlist $int scan |grep 'Cell\|ESSID' &> /tmp/wlans;
+int=$(cat /tmp/wnics |grep -v 'no wireless extensions\|support scanning\|^[[:space:]]'| awk '{print $1}'|sort -r);
+/usr/sbin/iwlist $int scan |grep 'Cell\|ESSID' &> /tmp/wlans;
 
 # numero de redes encontradas
 num=$(wc -l /tmp/wlans|awk '{print $1}');
