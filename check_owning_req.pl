@@ -5,7 +5,6 @@ use Module::Load::Conditional qw[can_load check_install requires];
     my $mods = {
             LWP             => 5.60,
             HTTP::Request   => 6.00,
-            Tiny::Test      => 7.00,
     };
 
 	print can_load( modules => $mods )
