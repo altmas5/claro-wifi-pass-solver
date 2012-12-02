@@ -14,11 +14,11 @@ descargar
 
 * Vía [HTTP](https://nodeload.github.com/altmas5/claro-wifi-pass-solver/zip/master)
 * Vía git:
-
     git clone https://github.com/altmas5/claro-wifi-pass-solver.git
 
 uso
 ---
+Ejecutamos como usuario root o con un sudoer
     ./solve.sh
 
 licencia

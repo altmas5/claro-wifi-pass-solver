@@ -2,6 +2,14 @@
 num=0
 clr=0
 b16='0x'
+#chequeando tener los privilegios requeridos por iwlist
+user=`whoami`
+if [[ $user != "root" ]]
+then
+	echo "$user, debes ser root para escanear las redes"
+	echo "O ejecuta \"sudo !!\" si eres un sudoer"
+	exit
+fi
 #regex que hace match con los ESSID afectados
 pat="^CLARO_[[:xdigit:]]{6}$"
 
