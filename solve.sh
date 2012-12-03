@@ -4,18 +4,23 @@ clr=0
 b16='0x'
 #chequeando tener los privilegios requeridos por iwlist
 user=`whoami`
-if [[ $user != "root" ]]
-then
+ if [[ $user != "root" ]]
+ then
 	echo "$user, debes ser root para escanear las redes"
 	echo "O ejecuta \"sudo !!\" si eres un sudoer"
 	exit
-fi
+ fi
 #regex que hace match con los ESSID afectados
 pat="^CLARO_[[:xdigit:]]{6}$"
 
 #obtenemos interfaz inalambrica y escaneamos
 iwconfig &> /tmp/wnics;
 int=$(cat /tmp/wnics |grep -v 'no wireless extensions\|support scanning\|^[[:space:]]'| awk '{print $1}'|sort -r);
+ if [ -z "$int" ];
+ then
+ 	echo "No se encontraron interfaces de red inalámbrica disponibles";
+ 	exit
+ fi
 /usr/sbin/iwlist $int scan |grep 'Cell\|ESSID' &> /tmp/wlans;
 
 # numero de redes encontradas
