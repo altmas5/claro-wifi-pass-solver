@@ -18,8 +18,10 @@ descargar
 
 uso
 ---
-Ejecutamos como usuario root o con un sudoer
+Para obtener contraseñas de redes alcanzables ejecutás como usuario root o con un sudoer:
     ./solve.sh
+
+Una vez autenticados podés usar los perl scripts check_owning_req.pl y 0wn3r.pl bajo tu responsabilidad.
 
 licencia
 --------
