@@ -2,6 +2,10 @@
 num=0
 clr=0
 b16='0x'
+#ASCII art
+echo "+=======================================+";
+echo "|  (')> CWPS (Claro Wifi Pass Solver)   |";
+echo "+=======================================+";
 #chequeando tener los privilegios requeridos por iwlist
 user=`whoami`
  if [[ $user != "root" ]]
