@@ -16,6 +16,8 @@ user=`whoami`
  fi
 #regex que hace match con los ESSID afectados
 pat="^CLARO_[[:xdigit:]]{6}$"
+pat2="^IBW_WIM*[[:xdigit:]]$"
+pat3="^TURBONETT_[[:xdigit:]]{6}$"
 
 #obtenemos interfaz inalambrica y escaneamos
 iwconfig &> /tmp/wnics;
