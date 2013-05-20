@@ -10,6 +10,7 @@ use warnings;
 use feature qw(switch);
 
 print "0wn3r para router COMTREND de casa claro \n";
+system("/usr/bin/perl check_owning_req.pl ");
 my $ua = LWP::UserAgent->new(agent=>'Mozilla/5.0');
 
 $ua->credentials("192.168.1.1:80","DSL Router","admin","c1\@r0");
