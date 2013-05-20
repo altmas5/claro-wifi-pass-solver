@@ -14,12 +14,15 @@ my $ua = LWP::UserAgent->new(agent=>'Mozilla/5.0');
 
 $ua->credentials("192.168.1.1:80","DSL Router","admin","c1\@r0");
 $ua->show_progress('TRUE');
+print "Contectandome al router...\n";
+sleep(1);
 my $response = $ua->get('http://192.168.1.1/');
 
 if ($response->is_success)
  {
 	print "***********************************\n";
-	print "Presione:  \n";
+	print "Contectado al router exitosamente\n";
+	print "Presiona:  \n";
 	print " 1: Cambiar auth de la red \n";
 	print " 2: Cambiar nombre de la red\n";
 	print " 3: cambiar password administrativo\n";
@@ -33,6 +36,8 @@ if ($response->is_success)
  }
 else
 	{
+	print "No me he podido conectar al router\n";
+	print "Mensaje de error:\n";
 	die $response->status_line;
 	}
 
@@ -44,7 +49,7 @@ sub changeAuth
 	if ($resp->is_success)
 		{
 		print "Respuesta: ", $resp->code( ), "\n";
-		print "Autenticacion ha sido cambiada a abierta sin encriptacion"
+		print "Autenticacion ha sido cambiada a: abierta sin encriptacion\n";
 		}
 	else
 		{
