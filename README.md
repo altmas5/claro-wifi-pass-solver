@@ -13,13 +13,12 @@ descargar
 ---------
 
 * Vía [HTTP](https://nodeload.github.com/altmas5/claro-wifi-pass-solver/zip/master)
-* Vía git:
-    git clone https://github.com/altmas5/claro-wifi-pass-solver.git
+* Vía git: ```git clone https://github.com/altmas5/claro-wifi-pass-solver.git```
 
 uso
 ---
 Para obtener contraseñas de redes alcanzables ejecutás como usuario root o con un sudoer:
-    ./solve.sh
+    ```./solve.sh```
 
 Una vez autenticados podés usar los perl scripts check_owning_req.pl y 0wn3r.pl bajo tu responsabilidad.
 
