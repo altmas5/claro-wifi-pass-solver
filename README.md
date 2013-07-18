@@ -9,6 +9,25 @@ Se funcionamiento ha sido probado únicamente en Nicaragua pensado para ejecurse
 
 Para entender como lo hace referirse a los comentarios en el código del script
 
+ejemplo
+-------
+
+            x               x
+           xx               xx
+          xx   xx       xx    xx
+          x   xx         xx    x              (E)SSID: CLARO_FBDA73
+         xx   x     +     x    xx             BSSID: 64:68:0C:FB:DA:74
+         xx   x     |     x    xx             ------------------------
+          x   xx    |    xx    x              passphrase: 680CFBDA73
+          xx   xx   |   xx    xx
+           xx       |        xx
+            x       |        x
+                    |
+     +------------------------------+
+     |    pw lan wlan rx/tx         |
+     +------------------------------+
+ diagrama hecho en [ASCIIFlow](http://www.asciiflow.com)
+
 descargar
 ---------
 
