@@ -1,10 +1,12 @@
 #!/usr/bin/perl
 
+use strict; 
+use warnings;
 use Module::Load::Conditional qw[can_load check_install requires];
 
     my $mods = {
-            LWP             => 5.60,
-            HTTP::Request   => 6.00,
+            "LWP"             => 5.60,
+            "HTTP::Request"   => 6.00,
     };
     	print "Verificando requisitos... \n";
 	sleep(1);
