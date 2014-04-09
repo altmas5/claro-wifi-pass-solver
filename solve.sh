@@ -21,13 +21,21 @@ pat3="^TURBONETT_[[:xdigit:]]{6}$"
 
 #obtenemos interfaz inalambrica y escaneamos
 iwconfig &> /tmp/wnics;
-int=$(cat /tmp/wnics |grep -v 'no wireless extensions\|support scanning\|^[[:space:]]'| awk '{print $1}'|sort -r);
+int=$(cat /tmp/wnics |grep -v 'no wireless extensions\|^[[:space:]]'| awk '{print $1}'|sort -r);
  if [ -z "$int" ];
  then
  	echo "No se encontraron interfaces de red inalámbrica disponibles";
  	exit
  fi
 /usr/sbin/iwlist $int scan |grep 'Cell\|ESSID' &> /tmp/wlans;
+
+# validando si el controlador de la WNIC soporta scan
+resp=$(cat /tmp/wlans);
+ if [[ $resp == *support* ]]
+ then
+	echo "La interfaz de red inalámbrica $int no soporta scaneo";
+	exit;
+ fi
 
 # numero de redes encontradas
 num=$(wc -l /tmp/wlans|awk '{print $1}');
